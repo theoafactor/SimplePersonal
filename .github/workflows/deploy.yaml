@@ -25,8 +25,8 @@ jobs:
           VERSION: latest
           USERNAME: theoafactor
         run: |
-            docker build -t $IMAGE_NAME:$VERSION .
-            docker push $IMAGE_NAME:$VERSION
+            docker build -t $USERNAME/$IMAGE_NAME:$VERSION .
+            docker push $USERNAME/$IMAGE_NAME:$VERSION
 
           
 
