@@ -23,9 +23,11 @@ jobs:
         env:
           IMAGE_NAME: simplepersonal101
           VERSION: latest
+          USERNAME: theoafactor
         run: |
-            docker build -t ${IMAGE_NAME}:${VERSION} .
-            
+            docker build -t $IMAGE_NAME:$VERSION .
+            docker push $USERNAME/$IMAGE_NAME:$VERSION
+
           
 
     
