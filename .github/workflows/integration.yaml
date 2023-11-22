@@ -1,4 +1,4 @@
-name: Deployment Workflow
+name: Integration
 on:
   push:
     branches:
@@ -21,7 +21,7 @@ jobs:
             password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: "Build our code"
         env:
-          IMAGE_NAME: simplepersonal101
+          IMAGE_NAME: cyclobold
           VERSION: latest
           USERNAME: theoafactor
         run: |
