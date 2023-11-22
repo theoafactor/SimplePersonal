@@ -1,0 +1,30 @@
+name: "Get Image and Build"
+on:
+  workflow_run:
+    workflows: ["Deployment Workflow"]
+    types:
+        - completed
+  
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: preparation
+        run: echo "Preparing to build ..."
+    
+      - name: pull the image from docker hub
+        run: sudo docker pull theoafactor/simplepersonal:latest
+
+      - name: "Delete the old image"
+        run: sudo docker rm -f simplepersonal || true
+
+      - name: "Run the docker image"
+        run: "sudo docker run -d 8080:8080 --name simplepersonal theoafactor/simplepersonal:latest"
+       
+    
+
+        
+
+          
+
+    
