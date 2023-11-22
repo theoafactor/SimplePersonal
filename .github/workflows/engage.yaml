@@ -19,7 +19,7 @@ jobs:
         run: sudo docker rm -f simplepersonal101 || true
 
       - name: "Run the docker image"
-        run: "sudo docker run -d 8080:8080 --name simplepersonal101 theoafactor/simplepersonal101:latest"
+        run: "sudo docker run -d 8080:8080 --name simplepersonal101 simplepersonal101:latest"
        
     
 
