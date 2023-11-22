@@ -8,7 +8,7 @@ jobs:
     pull_and_run_code:
         runs-on: self-hosted
         steps:
-            - name: "Remove container"
+            - name: "Remove container cyclobold"
               run: "sudo docker rm -f cyclobold || true"
 
             - name: "Get the code from Docker Hub"
