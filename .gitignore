@@ -1,0 +1,5 @@
+*.terraform
+*terraform
+terraform*
+main.tf
+testkey111_rsa
