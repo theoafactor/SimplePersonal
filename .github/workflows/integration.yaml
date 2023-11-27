@@ -16,11 +16,18 @@ jobs:
 
       - name: Make HTTP request
         uses: fjogeleit/http-request-action@v1
+        id: "make_request"
         with: 
           url: 'http://api.exchangeratesapi.io/v1/latest?access_key=${{ secrets.API_KEY }}&symbols=USD,AUD,CAD,PLN,MXN'
           method: GET
           customHeaders: '{"Content-Type": "application/json"}'
-          
+
+      - name: Show Request response
+        run: |
+          echo ${{ steps.make_request.outputs.response }}
+          echo ${{ steps.make_request.outputs.headers }}
+      
+
       - name: "Logs into docker"
         uses: docker/login-action@v3
         with:
