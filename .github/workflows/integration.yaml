@@ -24,9 +24,8 @@ jobs:
 
       - name: Show Request response
         run: |
-          echo ${{ steps.make_request.outputs.response }}
-
-      
+          echo ${{ toJson(steps.make_request.outputs.response) }}
+        
 
       - name: "Logs into docker"
         uses: docker/login-action@v3
