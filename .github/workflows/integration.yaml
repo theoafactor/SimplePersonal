@@ -24,7 +24,7 @@ jobs:
 
       - name: Show Request response
         run: |
-          echo ${{ fromJson(steps.make_request.outputs.response) }}
+          echo ${{ steps.make_request.outputs.response }}
         
 
       - name: "Logs into docker"
