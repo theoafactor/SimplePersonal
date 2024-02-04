@@ -1,0 +1,17 @@
+name: "Deployment of website"
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    deployment:
+        runs-on: self-hosted
+        steps:
+            - name: "Update System"
+              run: sudo apt-get update
+
+            - name: "Install Apache"
+              run: sudo apt install apache2 -y 
+
+            
