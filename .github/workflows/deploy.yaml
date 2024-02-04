@@ -18,12 +18,14 @@ jobs:
               run: |
                 cd /var/www
                 sudo chown -R $USER html/
-                sudo chown -R $USER html/*
+                sudo rm -rf html
+                sudo mkdir html
+                sudo chown -R $USER html/
                 cd html
                 sudo rm -f index.html
                 sudo echo "Welcome" > index.html
 
-                
+
 
                 
 
