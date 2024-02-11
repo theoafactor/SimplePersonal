@@ -22,8 +22,7 @@ jobs:
                 sudo mkdir html
                 sudo chown -R $USER html/
                 cd html
-                sudo rm -f index.html
-                sudo echo "Welcome" > index.html
+                git clone https://github.com/theoafactor/SimplePersonal.git .
 
 
 
