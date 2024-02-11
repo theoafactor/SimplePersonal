@@ -11,9 +11,19 @@ jobs:
             - name: "Update System"
               run: sudo apt-get update
 
-            - name: "Install Apache web server"
+            - name: "Install Apache web"
               run: sudo apt install apache2 -y 
-
+              
+            - name: "Change the index.html file content"
+              run: |
+                cd /var/www
+                sudo chown -R $USER html/
+                sudo rm -rf html
+                sudo mkdir html
+                sudo chown -R $USER html/
+                cd html
+                sudo rm -f index.html
+                sudo echo "Welcome" > index.html
 
 
 
