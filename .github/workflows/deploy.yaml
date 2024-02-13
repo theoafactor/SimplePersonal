@@ -34,7 +34,7 @@ jobs:
             - name: "Setup environmental variables and build"
               env: 
                 USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-                IMAGE_TAG: theoafactor/simpleweb:v1
+                IMAGE_TAG: theoafactor/simpleweb:v2
               run: |
                 docker build -t $IMAGE_TAG .
                 docker push $IMAGE_TAG
