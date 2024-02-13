@@ -39,10 +39,7 @@ jobs:
                 docker build -t $IMAGE_TAG .
                 docker push $IMAGE_TAG
 
-            - name: Install EKSCTL 
-              run: 
-
-            - name: Deploy to the EKS
+            - name: Install EKSCTL
               env: 
                 ARCH: amd64
                 PLATFORM: $(uname -s)_$ARCH
