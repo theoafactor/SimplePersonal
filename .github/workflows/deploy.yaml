@@ -39,8 +39,18 @@ jobs:
                 docker build -t $IMAGE_TAG .
                 docker push $IMAGE_TAG
 
+            - name: Install EKSCTL 
+              run: 
 
-                
+            - name: Deploy to the EKS
+              env: 
+                ARCH: amd64
+                PLATFORM: $(uname -s)_$ARCH
+
+              run: |
+                curl -sLO "https://github.com/eksctl-io/eksctl/releases/download/v0.171.0/eksctl_Linux_amd64.tar.gz"
+                tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
+                sudo mv /tmp/eksctl /usr/local/bin
 
             
 
