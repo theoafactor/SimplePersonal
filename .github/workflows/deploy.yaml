@@ -46,7 +46,6 @@ jobs:
               env: 
                 ARCH: amd64
                 PLATFORM: $(uname -s)_$ARCH
-
               run: |
                 curl -sLO "https://github.com/eksctl-io/eksctl/releases/download/v0.171.0/eksctl_Linux_amd64.tar.gz"
                 tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
