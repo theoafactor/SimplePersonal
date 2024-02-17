@@ -3,6 +3,7 @@ on:
     push:
         branches:
             - master
+            - test
 jobs:
     preparation:
         runs-on: self-hosted
