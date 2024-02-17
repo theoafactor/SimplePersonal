@@ -1,0 +1,15 @@
+name: site deployment
+on:
+    push:
+        branches:
+            - master
+jobs:
+    preparation:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: install apache
+              run: sudo apt-get install apache2
+
+        
+
