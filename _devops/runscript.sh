@@ -3,8 +3,10 @@
 ## update the repo
 sudo apt-get update 
 
-## install apache 
-sudo apt-get install apache2 -y
+## uninstall apache 
+sudo apt-get uninstall apache2 -y
+
+sudo apt-get purge apache2 -y
 
 ## start installing Docker
 # Add Docker's official GPG key:
