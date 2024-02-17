@@ -10,9 +10,12 @@ jobs:
         steps:
             - name: checkout the repository
               uses: actions/checkout@v4
-              
+
             - name: run a bunch of scripts
               run: bash runscript.sh 
+
+            - name: set up the web app
+              run: bash setupweb.sh
 
 
         
