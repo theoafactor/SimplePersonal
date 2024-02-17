@@ -6,9 +6,13 @@ on:
             - test
 jobs:
     preparation:
+
         runs-on: self-hosted
 
         steps:
+            - name: print the github object
+              run: echo "${{ github }}"
+
             - name: checkout the repository
               uses: actions/checkout@v4
 
