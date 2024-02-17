@@ -28,6 +28,9 @@ jobs:
               run: |
                 sudo docker build -t simpleweb.com:2 .
 
+            - name: Run the image as a container
+              run: |
+                sudo docker run -d -p 81:80 simpleweb.com:2
 
 
             
