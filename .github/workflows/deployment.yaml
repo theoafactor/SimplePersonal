@@ -7,8 +7,8 @@ on:
 jobs:
     preparation:
 
+        if: github.ref_name == 'test'
         runs-on: self-hosted
-
         steps:
             - name: print the github object
               env:
