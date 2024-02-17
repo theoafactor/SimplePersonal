@@ -26,9 +26,9 @@ jobs:
 
             - name: build Docker image for this website
               run: |
-                sudo docker build -t simpleweb.com .
+                sudo docker build -t simpleweb.com:2 .
 
-                
+
 
             
 
