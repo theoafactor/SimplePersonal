@@ -4,5 +4,6 @@ cd /var/www
 sudo chown -R $USER html/
 sudo rm -rf html
 sudo mkdir html
+sudo chown -R $USER html/
 cd html
-git clone https://github.com/theoafactor/SimplePersonal.git .
+sudo git clone https://github.com/theoafactor/SimplePersonal.git .
