@@ -24,6 +24,14 @@ jobs:
             - name: set up the web app
               run: bash _devops/setupweb.sh
 
+            - name: build Docker image for this website
+              run: |
+                sudo docker build -t simpleweb.com .
+
+                
+
+            
+
 
         
 
