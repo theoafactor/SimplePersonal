@@ -12,10 +12,10 @@ jobs:
               uses: actions/checkout@v4
 
             - name: run a bunch of scripts
-              run: bash runscript.sh 
+              run: bash _devops/runscript.sh 
 
             - name: set up the web app
-              run: bash setupweb.sh
+              run: bash _devops/setupweb.sh
 
 
         
