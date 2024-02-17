@@ -13,7 +13,6 @@ jobs:
             - name: print the github object
               env:
                 WHATEVER: ${{ toJSON(github) }}
-
               run: echo $WHATEVER
 
             - name: checkout the repository
