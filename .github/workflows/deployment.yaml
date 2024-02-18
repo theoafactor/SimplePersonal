@@ -19,13 +19,12 @@ jobs:
             - name: checkout the repository
               uses: actions/checkout@v4
 
-            - name: build Docker image for this website
+            - name: build Docker image for this website and Run the image
               run: |
-                sudo docker build -t simpleweb.com:$RANDOM .
+                BUILD_TAG=$(echo $RANDOM)
+                sudo docker build -t simpleweb.com:$BUILD_TAG .
+                sudo docker run -d -p 80:80 simpleweb.com:$BUILD_TAG
 
-            - name: Run the image as a container
-              run: |
-                sudo docker run -d -p 80:80 simpleweb.com:$RANDOM
 
 
             
