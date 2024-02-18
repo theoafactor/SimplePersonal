@@ -3,3 +3,5 @@
 terraform*
 main.tf
 testkey111_rsa
+deploy.tf
+testermankey.pem

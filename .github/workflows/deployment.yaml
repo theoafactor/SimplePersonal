@@ -7,7 +7,7 @@ on:
 jobs:
     preparation:
 
-        if: github.ref_name == 'test'
+        if: ${{ github.ref_name == 'test' }}
         runs-on: self-hosted
         steps:
             - name: print the github object
@@ -17,12 +17,6 @@ jobs:
 
             - name: checkout the repository
               uses: actions/checkout@v4
-
-            - name: run a bunch of scripts
-              run: bash _devops/runscript.sh 
-
-            - name: set up the web app
-              run: bash _devops/setupweb.sh
 
             - name: build Docker image for this website
               run: |
