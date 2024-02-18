@@ -13,6 +13,7 @@ jobs:
             - name: print the github object
               env:
                 WHATEVER: ${{ toJSON(github) }}
+    
               run: echo $WHATEVER
 
             - name: checkout the repository
@@ -20,11 +21,11 @@ jobs:
 
             - name: build Docker image for this website
               run: |
-                sudo docker build -t simpleweb.com:3 .
+                sudo docker build -t simpleweb.com:$RANDOM .
 
             - name: Run the image as a container
               run: |
-                sudo docker run -d -p 80:80 simpleweb.com:3
+                sudo docker run -d -p 80:80 simpleweb.com:$RANDOM
 
 
             
