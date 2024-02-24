@@ -16,7 +16,7 @@ jobs:
     
               run: echo $WHATEVER
 
-            - name: checkout the repository
+            - name: checkout from the repository
               uses: actions/checkout@v4
 
             - name: build Docker image for this website and Run the image
