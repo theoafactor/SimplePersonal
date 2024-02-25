@@ -43,6 +43,7 @@ jobs:
                   terraform apply --auto-approve
 
 
+     
 
     cleanup:
         if: ${{ github.ref_name == 'destroy' }}
