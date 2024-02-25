@@ -35,7 +35,7 @@ resource "local_file" "stored_private_key" {
 
 // create a security group
 resource "aws_security_group" "checking_instance_sg" {
-    name = "Check_instance_sec_group"
+    name = "deployment_instance_sec_group"
     description = "Created security group with Terraform"
     vpc_id = "vpc-05eea395b4623bebc"
         
