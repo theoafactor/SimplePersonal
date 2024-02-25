@@ -56,6 +56,9 @@ jobs:
             - name: list directory
               run: ls 
 
+            - name: "Initialize the terraform"
+              run: |
+                terraform init
 
             - name: setup aws cli
               uses: aws-actions/configure-aws-credentials@v4
