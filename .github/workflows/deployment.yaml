@@ -53,6 +53,10 @@ jobs:
             - name: checkout from the repository
               uses: actions/checkout@v4
 
+            - name: list directory
+              run: ls 
+
+
             - name: setup aws cli
               uses: aws-actions/configure-aws-credentials@v4
               with:
