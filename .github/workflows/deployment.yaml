@@ -70,6 +70,7 @@ jobs:
 
             - name: Apply Terraform
               run: |
+                  cd ~
                   terraform destroy --auto-approve
 
               
