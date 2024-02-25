@@ -43,8 +43,13 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 echo "Cloning Repository .."
 
-sudo git clone https://github.com/theoafactor/SimplePersonal.git .
+sudo git clone -b test https://github.com/theoafactor/SimplePersonal.git web
 
+sudo chown -R $USER web/
+
+sudo chown -R $USER web
+
+cd web
 
 ## build the image and run as container 
 echo "Building and Running Docker Container ..."
