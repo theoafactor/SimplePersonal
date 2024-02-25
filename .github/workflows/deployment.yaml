@@ -9,7 +9,7 @@ jobs:
     setup:
 
         if: ${{ github.ref_name == 'test' }}
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
             - name: print the github object
               env:
@@ -47,7 +47,7 @@ jobs:
 
     cleanup:
         if: ${{ github.ref_name == 'destroy' }}
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
       
             - name: checkout from the repository
