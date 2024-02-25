@@ -43,11 +43,6 @@ jobs:
                   terraform apply --auto-approve
 
 
-            - name: build Docker image for this website and Run the image
-              run: |
-                  BUILD_TAG=$(echo $RANDOM)
-                  sudo docker build -t simpleweb.com:$BUILD_TAG .
-                  sudo docker run -d -p 80:80 simpleweb.com:$BUILD_TAG
 
     cleanup:
         if: ${{ github.ref_name == 'destroy' }}
