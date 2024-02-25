@@ -29,6 +29,10 @@ jobs:
                 aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
                 aws-region: "eu-west-2"
                 aws-secret-access-key: ${{ secrets.AWS_SECRET }}
+
+            - name: cleanup all files
+              run: | 
+                sudo rm -f *.pem
                 
             - name: "Initialize the terraform"
               run: |
