@@ -2,26 +2,26 @@
 
 
 # install runner
-mkdir actions-runner 
+# mkdir actions-runner 
 
-## configure 
-sudo chown -R actions-runner/
+# ## configure 
+# sudo chown -R actions-runner/
 
-cd actions-runner
+# cd actions-runner
 
-curl -o actions-runner-linux-x64-2.313.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.313.0/actions-runner-linux-x64-2.313.0.tar.gz
+# curl -o actions-runner-linux-x64-2.313.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.313.0/actions-runner-linux-x64-2.313.0.tar.gz
 
-sudo chown -R ubuntu actions-runner/*
+# sudo chown -R ubuntu actions-runner/*
 
-tar xzf ./actions-runner-linux-x64-2.313.0.tar.gz
+# tar xzf ./actions-runner-linux-x64-2.313.0.tar.gz
 
-sudo chown -R ubuntu actions-runner/*
+# sudo chown -R ubuntu actions-runner/*
 
-./config.sh --unattended --url https://github.com/theoafactor/SimplePersonal --token ADKQKWJZ7GI4YK6TZ4F6HTTF3NY2I --name worker1 --label worker1 --replace
+# ./config.sh --unattended --url https://github.com/theoafactor/SimplePersonal --token ADKQKWJZ7GI4YK6TZ4F6HTTF3NY2I --name worker1 --label worker1 --replace
 
-sudo ./svc.sh install 
+# sudo ./svc.sh install 
 
-sudo ./svc.sh start
+# sudo ./svc.sh start
 
 
 # install Docker
@@ -40,6 +40,10 @@ echo \
 sudo apt-get update
 
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+
+echo "Cloning Repository .."
+
+sudo git clone https://github.com/theoafactor/SimplePersonal.git .
 
 
 ## build the image and run as container 
