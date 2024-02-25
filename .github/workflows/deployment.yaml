@@ -53,9 +53,6 @@ jobs:
             - name: checkout from the repository
               uses: actions/checkout@v4
 
-            - name: Install Terraform
-              run: bash _devops/install_terraform.sh
-
             - name: setup aws cli
               uses: aws-actions/configure-aws-credentials@v4
               with:
