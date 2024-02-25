@@ -4,6 +4,7 @@ on:
         branches:
             - master
             - test
+            - destroy
 jobs:
     setup:
 
@@ -36,6 +37,36 @@ jobs:
             - name: Apply Terraform
               run: |
                   terraform apply --auto-approve
+
+
+            - name: build Docker image for this website and Run the image
+              run: |
+                  BUILD_TAG=$(echo $RANDOM)
+                  sudo docker build -t simpleweb.com:$BUILD_TAG .
+                  sudo docker run -d -p 80:80 simpleweb.com:$BUILD_TAG
+
+    cleanup:
+        if: ${{ github.ref_name == 'destroy' }}
+        runs-on: ubuntu-latest
+        steps:
+      
+            - name: checkout from the repository
+              uses: actions/checkout@v4
+
+            - name: Install Terraform
+              run: bash _devops/install_terraform.sh
+
+            - name: setup aws cli
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+                aws-region: "eu-west-2"
+                aws-secret-access-key: ${{ secrets.AWS_SECRET }}
+                
+
+            - name: Apply Terraform
+              run: |
+                  terraform destroy --auto-approve
 
               
 
