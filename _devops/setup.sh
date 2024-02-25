@@ -17,7 +17,7 @@ tar xzf ./actions-runner-linux-x64-2.313.0.tar.gz
 
 sudo chown -R ubuntu actions-runner/*
 
-./config.sh --unattended --url https://github.com/theoafactor/SimplePersonal --token ADKQKWMUTMCKT57VCUZEA6TF3NVG2 --replace
+./config.sh --unattended --url https://github.com/theoafactor/SimplePersonal --token ADKQKWJZ7GI4YK6TZ4F6HTTF3NY2I --replace
 
 sudo ./svc.sh install 
 

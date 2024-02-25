@@ -5,10 +5,10 @@ on:
             - master
             - test
 jobs:
-    preparation:
+    setup:
 
         if: ${{ github.ref_name == 'test' }}
-        runs-on: self-hosted
+        runs-on: ubuntu-latest
         steps:
             - name: print the github object
               env:
@@ -19,12 +19,28 @@ jobs:
             - name: checkout from the repository
               uses: actions/checkout@v4
 
-            - name: build Docker image for this website and Run the image
-              run: |
-                BUILD_TAG=$(echo $RANDOM)
-                sudo docker build -t simpleweb.com:$BUILD_TAG .
-                sudo docker run -d -p 80:80 simpleweb.com:$BUILD_TAG
+            - name: Install Terraform
+              run: bash _devops/install_terraform.sh
 
+            - name: setup aws cli
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+                aws-region: "eu-west-2"
+                aws-secret-access-key: ${{ secrets.AWS_SECRET }}
+                
+            - name: "Initialize the terraform"
+              run: |
+                  terraform init
+                  
+            - name: Apply Terraform
+              run: |
+                  terraform apply --auto-approve
+
+              
+
+
+                
 
 
             
