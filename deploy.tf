@@ -21,7 +21,7 @@ resource "tls_private_key" "testerman" {
 }
 
 resource "aws_key_pair" "testerman_key_pair" {
-    key_name = "testermankey.pem"
+    key_name = "testermankey2.pem"
     public_key = tls_private_key.testerman.public_key_openssh
 
 }
@@ -35,7 +35,7 @@ resource "local_file" "stored_private_key" {
 
 // create a security group
 resource "aws_security_group" "checking_instance_sg" {
-    name = "new_instance_sec_group"
+    name = "new_instance_sec_group_2"
     description = "Created security group with Terraform"
     vpc_id = "vpc-05eea395b4623bebc"
         
