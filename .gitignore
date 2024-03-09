@@ -4,3 +4,4 @@ terraform*
 main.tf
 testkey111_rsa
 testermankey.pem
+testermankey6.pem

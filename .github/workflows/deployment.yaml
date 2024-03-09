@@ -20,28 +20,14 @@ jobs:
             - name: checkout from the repository
               uses: actions/checkout@v4
 
-            - name: Install Terraform
-              run: bash _devops/install_terraform.sh
-
-            - name: setup aws cli
-              uses: aws-actions/configure-aws-credentials@v4
-              with:
-                aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
-                aws-region: "eu-west-2"
-                aws-secret-access-key: ${{ secrets.AWS_SECRET }}
-
-            - name: cleanup all files
+            - name: Build image from Dockerfile
               run: | 
-                sudo rm -f *.pem
                 
-            - name: "Initialize the terraform"
-              run: |
-                  terraform init
-                  
-            - name: Apply Terraform
-              run: |
-                  terraform apply --auto-approve
+                docker build -t theoafactor/cyclobold:latest .
 
+            - name: Run the image as a container
+              run: |
+                docker run -d -p 80:80 --name cyclobold theoafactor/cyclobold:latest
 
      
 

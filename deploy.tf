@@ -1,3 +1,5 @@
+// DEPLOYMENT OF self-hosted runner ----
+
 terraform {
     required_providers {
         aws = {
@@ -11,7 +13,7 @@ terraform {
 // configure the provider 
 
 provider "aws" {
-    region = "us-east-1"
+    region = var.region_variable
 } 
 
 // create a keypair 
@@ -37,7 +39,7 @@ resource "local_file" "stored_private_key" {
 resource "aws_security_group" "checking_instance_sg" {
     name = "new_instance_sec_group_6"
     description = "Created security group with Terraform"
-    vpc_id = "vpc-05eea395b4623bebc"
+    # vpc_id = "vpc-05eea395b4623bebc"
         
     ingress {
         description = "Ingress for allowing traffic into the instance"
@@ -71,15 +73,15 @@ resource "aws_security_group" "checking_instance_sg" {
 
 // create an ec2 instance 
 resource "aws_instance" "checking_instance" {
-    ami = "ami-053b0d53c279acc90"
+    ami = "ami-07d9b9ddc6cd8dd30"
     instance_type = "t2.micro"
-    subnet_id = "subnet-07677ad957fa848a4"
+    # subnet_id = "subnet-07677ad957fa848a4"
     key_name = aws_key_pair.testerman_key_pair.key_name
     associate_public_ip_address = true
     vpc_security_group_ids = [aws_security_group.checking_instance_sg.id]
     # user_data = file("_devops/setup.sh")
     tags = {
-        Name = "first instance"
+        Name = var.instance_variable
     }
 
     connection {
